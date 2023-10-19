@@ -1,0 +1,35 @@
+[
+    
+    {
+        "id": "1",
+        "brandname": "Ali Baba",
+        "brandnameImg": "https://i.ibb.co/WtsCqJ9/alibaba-logo.png"
+    },
+    {
+        "id": "2",
+        "brandname": "Amazon",
+        "brandnameImg": "https://i.ibb.co/2PP5Ks4/Amazon-logo.jpg"
+    },
+    {
+        "id": "3",
+        "brandname": "Best Buy",
+        "brandnameImg": "https://i.ibb.co/m5LRQ8k/bestbuy2.jpg"
+    },
+    {
+        "id": "4",
+        "brandname": "EBay",
+        "brandnameImg": "https://i.ibb.co/JqN2Cwp/ebay-2.jpg"
+    },
+    {
+        "id": "5",
+        "brandname": "Target",
+        "brandnameImg": "https://i.ibb.co/JHGXLf3/target-logo.jpg"
+    },
+    {
+        "id": "6",
+        "brandname": "Walmart",
+        "brandnameImg": "https://i.ibb.co/QnwVXmF/walmart-logo.png"
+    }
+]
+
+
