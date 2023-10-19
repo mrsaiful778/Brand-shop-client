@@ -67,8 +67,8 @@ const Login = () => {
                                 <button className="btn ">google login</button>
                             </div> */}
                         </form>
-                        < p className="text-center mt-4">Don't have an account? <Link className="text-blue-600" to="/register">please register</Link></p> 
-                <p className="text-center my-4"> <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success"> <FaGoogle></FaGoogle>Google</button></p>
+                        < p className="text-center mt-4">Don't have an account? <Link className="text-blue-600" to="/register">please register</Link></p>
+                        <p className="text-center my-4"> <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success"> <FaGoogle></FaGoogle>Google</button></p>
                     </div>
                 </div>
             </div>
