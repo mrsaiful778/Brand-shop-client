@@ -20,7 +20,8 @@ import BestBay from './Pages/BestBay/BestBay';
 import EBay from './Pages/EBay/EBay';
 import Target from './Pages/Target/Target';
 import Walmart from './Pages/Walmart/Walmart';
-import Alibaba from './Pages/Alibaba/Alibaba';
+import Flipkart from './Pages/flipkart/flipkart';
+
 
 const router = createBrowserRouter([
   {
@@ -39,13 +40,13 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
+      
       {
-        path: '/alibaba',
-        element: <Alibaba></Alibaba>
+        path: '/flipkart',
+        element: <Flipkart></Flipkart>
       },
-
       {
-        path: 'amazon',
+        path: '/amazon',
         element: <Amazon></Amazon>
       },
       {

@@ -2,26 +2,38 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { FaGoogle } from 'react-icons/fa';
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
-       console.log(e.currentTarget);
-       const form = new FormData(e.currentTarget);
-       const email = form.get('email')
-       const password = form.get('password')
-       console.log(email, password);
+        console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email')
+        const password = form.get('password')
+        console.log(email, password);
         signIn(email, password)
-        .then(result =>{
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.error(error);
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+    //google login
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
+    //google
     return (
 
         <div>
@@ -51,18 +63,17 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <div className="form-control mt-6">
+                            {/* <div className="form-control mt-6">
                                 <button className="btn ">google login</button>
-                            </div>
+                            </div> */}
                         </form>
-                        <p className='text-center pb-3'>
-                       Dont't have an account? <Link className='text-blue-600' to="/register">Register</Link>
-                    </p>
+                        < p className="text-center mt-4">Don't have an account? <Link className="text-blue-600" to="/register">please register</Link></p> 
+                <p className="text-center my-4"> <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success"> <FaGoogle></FaGoogle>Google</button></p>
                     </div>
                 </div>
             </div>
-           
-           
+
+
         </div>
     );
 };
