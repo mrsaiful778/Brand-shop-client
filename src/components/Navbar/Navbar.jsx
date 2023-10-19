@@ -1,9 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/image/Perfume_Palace_logo_Final.webp'
+import { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
 
 
-const Navbar = (props) => {
-
+const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = () => {
+        logOut()
+        .then()
+        .catch()
+    }
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to='/addproduct'>Add Product</NavLink></li>
@@ -15,8 +22,8 @@ const Navbar = (props) => {
     return (
 
         <div className=''>
-            
-            
+
+
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -37,12 +44,18 @@ const Navbar = (props) => {
                 <div className="navbar-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 mr-2 rounded-full">
-                            <img src="https://i.ibb.co/FmqyX29/avatar.webp"/>
+                            <img src="https://i.ibb.co/FmqyX29/avatar.webp" />
                         </div>
                     </label>
-                    <Link to={'/login'}>
-                        <button className="btn">Login</button>
-                    </Link>
+                    {
+                        user ?
+                            <button onClick={handleSignOut} className="btn">Sign Out</button>
+                            :
+                            <Link to={'/login'}>
+                                <button className="btn">Login</button>
+                            </Link>
+                    }
+
 
                 </div>
             </div>
