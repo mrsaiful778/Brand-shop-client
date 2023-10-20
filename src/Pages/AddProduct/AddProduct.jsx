@@ -35,7 +35,7 @@ const AddProduct = (props) => {
                                 <span className="label-text">Brand</span>
                             </label>
                             <label className="input-group h-auto">
-                            <select className="w-full h-5">
+                            <select className="w-full p-3">
                                 <option disabled selected>Pick a brand</option>
                                 <option>Flipcart</option>
                                 <option>Amazon</option>
@@ -56,28 +56,8 @@ const AddProduct = (props) => {
                             </label>
                         </div>
                     </div>
-                    {/* <div className="md:flex ">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Category</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="category" placeholder="Americano" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text">Details</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="details" placeholder="Espresso with hot water" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-
-
-                </div> */}
+                    
+                    
                     <div className="mb-8">
                         <div className="form-control  w-full">
                             <label className="label">
@@ -98,7 +78,7 @@ const AddProduct = (props) => {
                             </label>
                         </div>
                     </div>
-                    <input type="submit" value="Add Coffee" className="btn btn-block bg-[#D2B48C] text-bg-[#331A15]" />
+                    <input type="submit" value="Add Product" className="btn btn-block bg-[#D2B48C] text-bg-[#331A15]" />
                 </form>
             </div>
         </div>
