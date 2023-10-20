@@ -12,47 +12,46 @@ const Amazon = () => {
     return (
 
         <div className="">
-            <h2>Amazon</h2>
+            
             <div>
-                slider 
                 <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/sgqCz9z/download4.jpg" className="w-full" />
+                <img src="https://i.ibb.co/g6TDrp2/Apple-Watch-Evolution-2016-2020.jpg" className="w-full h-[550px]" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide4" className="btn btn-circle">❮</a>
                     <a href="#slide2" className="btn btn-circle">❯</a>
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/hKP6fjr/images3.jpg" className="w-full" />
+                <img src="https://i.ibb.co/Tr16NTy/28628-44931-apple-watch-black-friday.jpg" className="w-full h-[550px]" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide1" className="btn btn-circle">❮</a>
                     <a href="#slide3" className="btn btn-circle">❯</a>
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/1mkbHH8/images-2.jpg" className="w-full" />
+                <img src="https://i.ibb.co/QP6KFzC/get-apple-watch-series-4.jpg" className="w-full h-[550px]" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide2" className="btn btn-circle">❮</a>
                     <a href="#slide4" className="btn btn-circle">❯</a>
                 </div>
             </div>
             <div id="slide4" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/pdzKxx6/images.jpg" className="w-full" />
+                <img src="https://i.ibb.co/Yc01qwj/apple-watch.jpg" className="w-full h-[550px]" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide3" className="btn btn-circle">❮</a>
                     <a href="#slide1" className="btn btn-circle">❯</a>
                 </div>
             </div>
         </div>
-                
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols space-y-5 text-center container mx-auto">
+            <h2 className='text-center py-10 text-6xl font-extralight'>Amazon</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-y-5 text-center container mx-auto">
                 {
                     details.map(detail => <div key={detail._id}>
-                        <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card w-90 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src={detail.photo} alt="Shoes" className="rounded-xl" />
+                                <img src={detail.photo} alt="Shoes" className="rounded-xl " />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">{detail.name}</h2>

@@ -11,13 +11,13 @@ const Flipkart = (props) => {
     return (
         
         <div>
-            <h2>flipkart</h2>
+            <h2 className='py-10 text-6xl font-extralight'>flipkart</h2>
             <div>slider</div>
             <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-y-5 text-center container mx-auto">
                 {
                     details.map(detail => <div key={detail._id}>
-                        <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card w-90 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
                                 <img src={detail.photo} alt="Shoes" className="rounded-xl" />
                             </figure>
