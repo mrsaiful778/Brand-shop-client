@@ -2,32 +2,32 @@
     
     {
         "id": "1",
-        "brandname": "Flipkart",
+        "brandname": "flipkart",
         "brandnameImg": "https://i.ibb.co/PGCMvXC/flipkart-logo.png"
     },
     {
         "id": "2",
-        "brandname": "Amazon",
+        "brandname": "amazon",
         "brandnameImg": "https://i.ibb.co/2PP5Ks4/Amazon-logo.jpg"
     },
     {
         "id": "3",
-        "brandname": "Best Buy",
-        "brandnameImg": "https://i.ibb.co/m5LRQ8k/bestbuy2.jpg"
+        "brandname": "bestbuy",
+        "brandnameImg": "https://i.ibb.co/XW5GLpT/images.png"
     },
     {
         "id": "4",
-        "brandname": "EBay",
+        "brandname": "eBay",
         "brandnameImg": "https://i.ibb.co/JqN2Cwp/ebay-2.jpg"
     },
     {
         "id": "5",
-        "brandname": "Target",
+        "brandname": "target",
         "brandnameImg": "https://i.ibb.co/JHGXLf3/target-logo.jpg"
     },
     {
         "id": "6",
-        "brandname": "Walmart",
+        "brandname": "walmart",
         "brandnameImg": "https://i.ibb.co/QnwVXmF/walmart-logo.png"
     }
 ]

@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
+import { ToastContainer } from 'react-toastify';
 
 
 const Main = (props) => {
@@ -7,6 +8,7 @@ const Main = (props) => {
 
         <div>
             <Navbar></Navbar>
+            <ToastContainer />
             <Outlet></Outlet>
         </div>
     );

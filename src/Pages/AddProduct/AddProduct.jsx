@@ -1,13 +1,46 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddProduct = (props) => {
+
+    const createProduct = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name')
+        const brand = form.get('brand')
+        const category = form.get('category')
+        const price = form.get('price')
+        const details = form.get('details')
+        const photo = form.get('photo')
+        console.log(name, brand, category, price, details, photo);
+
+        const cProduct = { name, brand, category, price, details, photo }
+        console.log(cProduct);
+        fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            if(data.insertedId){
+                toast("Product added successfully!");
+            }
+            })
+    }
+
+
     return (
 
         <div>
             <div className="bg-[#F4F3F0] p-24 ">
                 <h2 className="text-3xl font-extrabold"> Add Product </h2>
                 <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
-                <form >
+                <form onSubmit={createProduct} >
                     <div className="md:flex ">
                         <div className="form-control md:w-1/2">
                             <label className="label">
@@ -20,11 +53,11 @@ const AddProduct = (props) => {
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
                             <label className="label">
-                                <span className="label-text">Type of product </span>
+                                <span className="label-text">Brand </span>
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="quantity" placeholder="Type of product" className="input input-bordered w-full" />
+                                <input type="text" name="brand" placeholder="Brand name" className="input input-bordered w-full" />
                             </label>
                         </div>
 
@@ -32,18 +65,18 @@ const AddProduct = (props) => {
                     <div className="md:flex ">
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text">Brand</span>
+                                <span className="label-text">Type of product</span>
                             </label>
                             <label className="input-group h-auto">
-                            <select className="w-full p-3">
-                                <option disabled selected>Pick a brand</option>
-                                <option>Flipcart</option>
-                                <option>Amazon</option>
-                                <option>BestBay</option>
-                                <option>EBay</option>
-                                <option>Target</option>
-                                <option>Walmart</option>
-                            </select>
+                                <select name='category' className="w-full p-3">
+                                    <option disabled >Pick a type</option>
+                                    <option>Smart-watch</option>
+                                    <option>Phone</option>
+                                    <option>perfume</option>
+                                    <option>bodySpray</option>
+                                    <option>Camera</option>
+                                    <option>laptop</option>
+                                </select>
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
@@ -56,8 +89,8 @@ const AddProduct = (props) => {
                             </label>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div className="mb-8">
                         <div className="form-control  w-full">
                             <label className="label">
@@ -74,7 +107,7 @@ const AddProduct = (props) => {
                                 <span className="label-text">Photo URL</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="Photo" placeholder="Photo URL" className="input input-bordered w-full" />
+                                <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>

@@ -43,27 +43,38 @@ const router = createBrowserRouter([
       
       {
         path: '/flipkart',
-        element: <Flipkart></Flipkart>
+        element: <Flipkart></Flipkart>,
+        
+        loader: () => fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products')
       },
       {
         path: '/amazon',
-        element: <Amazon></Amazon>
+        element: <Amazon></Amazon>,
+        loader: () => fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products')
       },
       {
-        path: '/bestbay',
-        element: <BestBay></BestBay>
+        path: '/bestbuy',
+        element: <BestBay></BestBay>,
+        
+        loader: () => fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products')
       },
       {
         path: '/ebay',
-        element: <EBay></EBay>
+        element: <EBay></EBay>,
+        
+        loader: () => fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products')
       },
       {
         path: '/target',
-        element: <Target></Target>
+        element: <Target></Target>,
+        
+        loader: () => fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products')
       },
       {
         path: '/walmart',
-        element: <Walmart></Walmart>
+        element: <Walmart></Walmart>,
+        
+        loader: () => fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products')
       },
       {
         path: '/addproduct',
