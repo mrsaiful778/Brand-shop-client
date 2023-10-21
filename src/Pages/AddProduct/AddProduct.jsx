@@ -13,11 +13,12 @@ const AddProduct = (props) => {
         const price = form.get('price')
         const details = form.get('details')
         const photo = form.get('photo')
+        const rating = form.get('rating')
         console.log(name, brand, category, price, details, photo);
 
-        const cProduct = { name, brand, category, price, details, photo }
+        const cProduct = { name, brand, category, price, details, photo, rating }
         console.log(cProduct);
-        fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products', {
+        fetch('https://e-commerce-based.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -39,7 +40,7 @@ const AddProduct = (props) => {
         <div>
             <div className="bg-[#F4F3F0] p-24 ">
                 <h2 className="text-3xl font-extrabold"> Add Product </h2>
-                <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+                
                 <form onSubmit={createProduct} >
                     <div className="md:flex ">
                         <div className="form-control md:w-1/2">
@@ -58,6 +59,15 @@ const AddProduct = (props) => {
                             <label className="input-group">
 
                                 <input type="text" name="brand" placeholder="Brand name" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2 ml-4">
+                            <label className="label">
+                                <span className="label-text">Rating </span>
+                            </label>
+                            <label className="input-group">
+
+                                <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
                             </label>
                         </div>
 

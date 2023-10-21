@@ -24,6 +24,7 @@ import Flipkart from './Pages/flipkart/flipkart';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import Details from './Pages/Details/Details';
 import Update from './Pages/Update/Update';
+import Contact from './Pages/contact/contact';
 
 
 const router = createBrowserRouter([
@@ -48,36 +49,36 @@ const router = createBrowserRouter([
         path: '/flipkart',
         element: <Flipkart></Flipkart>,
         
-        loader: () => fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products')
+        loader: () => fetch('https://e-commerce-based.vercel.app/products')
       },
       {
         path: '/amazon',
         element: <Amazon></Amazon>,
-        loader: () => fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products')
+        loader: () => fetch('https://e-commerce-based.vercel.app/products')
       },
       {
         path: '/bestbuy',
         element: <BestBay></BestBay>,
         
-        loader: () => fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products')
+        loader: () => fetch('https://e-commerce-based.vercel.app/products')
       },
       {
         path: '/ebay',
         element: <EBay></EBay>,
         
-        loader: () => fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products')
+        loader: () => fetch('https://e-commerce-based.vercel.app/products')
       },
       {
         path: '/target',
         element: <Target></Target>,
         
-        loader: () => fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products')
+        loader: () => fetch('https://e-commerce-based.vercel.app/products')
       },
       {
         path: '/walmart',
         element: <Walmart></Walmart>,
         
-        loader: () => fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products')
+        loader: () => fetch('https://e-commerce-based.vercel.app/products')
       },
       {
         path: '/addproduct',
@@ -91,15 +92,19 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products/${params.id}`)
+        loader: ({params}) => fetch(`https://e-commerce-based.vercel.app/products/${params.id}`)
 
 
       },
       {
           path: '/update/:id',
           element: <Update></Update>,
-          loader: ({params}) => fetch(`https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products/${params.id}`)
+          loader: ({params}) => fetch(`https://e-commerce-based.vercel.app/products/${params.id}`)
           
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
       },
       {
         path: '/signin',
