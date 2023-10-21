@@ -17,7 +17,7 @@ const AddProduct = (props) => {
 
         const cProduct = { name, brand, category, price, details, photo }
         console.log(cProduct);
-        fetch('https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products', {
+        fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
