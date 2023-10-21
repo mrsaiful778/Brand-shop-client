@@ -21,6 +21,9 @@ import EBay from './Pages/EBay/EBay';
 import Target from './Pages/Target/Target';
 import Walmart from './Pages/Walmart/Walmart';
 import Flipkart from './Pages/flipkart/flipkart';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
+import Details from './Pages/Details/Details';
+import Update from './Pages/Update/Update';
 
 
 const router = createBrowserRouter([
@@ -78,11 +81,24 @@ const router = createBrowserRouter([
       },
       {
         path: '/addproduct',
-        element: <AddProduct></AddProduct>
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
         path: '/mycart',
-        element: <MyCart></MyCart>
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+      },
+      {
+        path: '/details/:id',
+        element: <Details></Details>,
+        loader: ({params}) => fetch(`https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products/${params.id}`)
+
+
+      },
+      {
+          path: '/update/:id',
+          element: <Update></Update>,
+          loader: ({params}) => fetch(`https://e-commerce-based-p8wxe7m10-mrsaifulislam778.vercel.app/products/${params.id}`)
+          
       },
       {
         path: '/signin',
