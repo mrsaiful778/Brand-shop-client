@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = (props) => {
     const { createUser } = useContext(AuthContext);
+    const [displayError, setDisplayError] = useState(null);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -14,13 +15,26 @@ const Register = (props) => {
         const email = form.get('email')
         const password = form.get('password')
         console.log(name, photo, email, password);
+
+        if (password.length < 6) {
+            setDisplayError('Password should be at least 6 characters');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setDisplayError('Your Password must contain a Capital Letter');
+            return;
+        }
+        else if (!/^(?=.*[!@#$%^&*()_+{}:;<>,.?~\\|-])/.test(password)) {
+            setDisplayError('Password must contain a Special Character');
+            return;
+        }
         createUser(email, password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -57,6 +71,9 @@ const Register = (props) => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <div>
+                                    {displayError && <p className="text-red-500 my-4">{displayError}</p>}
+                                </div>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
