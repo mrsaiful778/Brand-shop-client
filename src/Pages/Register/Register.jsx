@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = (props) => {
     const { createUser } = useContext(AuthContext);
@@ -31,6 +34,14 @@ const Register = (props) => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                updateProfile(result.user,{
+                    displayName : name,
+                    photoURL : photo,
+                })
+                .then(() =>{
+                    toast("Registration successfully!");
+                    window.location.reload()
+                })
             })
             .catch(error => {
                 console.error(error)
@@ -47,7 +58,7 @@ const Register = (props) => {
 
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleRegister} className="card-body">
+                        < form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

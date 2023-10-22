@@ -1,6 +1,9 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Update = (props) => {
     const productData = useLoaderData()
     const {_id, name, brand, category, price, photo, rating } = productData
@@ -27,6 +30,9 @@ const Update = (props) => {
         .then(res => res.json())
         .then(data =>{
             console.log(data);
+        if(data.modifiedCount > 0  ){
+            toast("Update successfully!");
+        }
         })
 
 
@@ -49,7 +55,7 @@ const Update = (props) => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="name" placeholder="Enter product name" className="input input-bordered w-full" />
+                                <input type="text" name="name" defaultValue={name} placeholder="Enter product name" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
@@ -58,7 +64,7 @@ const Update = (props) => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="brand" placeholder="Brand name" className="input input-bordered w-full" />
+                                <input type="text" name="brand" defaultValue={brand} placeholder="Brand name" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
@@ -67,7 +73,7 @@ const Update = (props) => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
+                                <input type="text" name="rating" defaultValue={rating} placeholder="Rating" className="input input-bordered w-full" />
                             </label>
                         </div>
 
@@ -78,7 +84,7 @@ const Update = (props) => {
                                 <span className="label-text">Type of product</span>
                             </label>
                             <label className="input-group h-auto">
-                                <select name='category' className="w-full p-3">
+                                <select name='category' defaultValue={category} className="w-full p-3">
                                     <option disabled >Pick a type</option>
                                     <option>Smart-watch</option>
                                     <option>Phone</option>
@@ -95,29 +101,18 @@ const Update = (props) => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+                                <input type="text" name="price" defaultValue={price}  placeholder="Price" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
 
-
-                    <div className="mb-8">
-                        <div className="form-control  w-full">
-                            <label className="label">
-                                <span className="label-text">Details</span>
-                            </label>
-                            <label className="input-group">
-                                <textarea type="text" name="details" placeholder="details" className="textarea textarea-bordered w-full"></textarea>
-                            </label>
-                        </div>
-                    </div>
                     <div className="mb-8">
                         <div className="form-control  w-full">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
+                                <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>

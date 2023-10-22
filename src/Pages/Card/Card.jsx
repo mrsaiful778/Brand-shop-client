@@ -1,11 +1,17 @@
 import React from 'react';
 
-const Card = ({mycart}) => {
+const Card = ({mycart, myCartData, setMyCartData}) => {
 
     const {_id , name , brand, price, category , photo, details} = mycart;
     console.log(mycart);
     
-    
+    const handleDeleteCart= (id ) => {
+        fetch(`https://e-commerce-based.vercel.app/carts/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
 
     return (
         

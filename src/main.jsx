@@ -92,7 +92,7 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`https://e-commerce-based.vercel.app/products/${params.id}`)
+        loader: () => fetch(`https://e-commerce-based.vercel.app/products`)
 
 
       },

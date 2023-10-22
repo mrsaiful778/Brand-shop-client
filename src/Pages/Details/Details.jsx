@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Details = (props) => {
+    const [cartsState, setCarstState] = useState({})
+    
     const detailsData = useLoaderData()
     console.log(detailsData);
 
     const {name , brand, price, category , photo, details } = detailsData
-    const carts = {name , brand, price, category , photo, details } 
+    const carts = {name: , brand, price, category , photo, details } 
     const handleAddCart = () => {
         fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/carts', {
             method: "POST",
