@@ -10,7 +10,7 @@ const Details = (props) => {
     console.log(detailsData);
 
     const {name , brand, price, category , photo, details } = detailsData
-    const carts = {name: , brand, price, category , photo, details } 
+    const carts = {name, brand, price, category , photo, details } 
     const handleAddCart = () => {
         fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/carts', {
             method: "POST",
@@ -37,7 +37,7 @@ const Details = (props) => {
                                 <h2 className="card-title">{name}</h2>
                                 <p className="text-4xl">{brand}</p>
                                 <p className="text-3xl">{category}</p>
-                                <p>{price}</p>
+                                <p>Price:{price}</p>
                                 <p>{details}</p>
                                 <button onClick={handleAddCart} className='btn btn-primary'>add to cart</button>
                                

@@ -5,19 +5,22 @@ import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Register = (props) => {
+
+
+
+const Register = () => {
+
     const { createUser } = useContext(AuthContext);
     const [displayError, setDisplayError] = useState(null);
 
     const handleRegister = e => {
         e.preventDefault();
-        console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
-        const name = form.get('name')
-        const photo = form.get('photo')
-        const email = form.get('email')
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const email = form.get('email');
         const password = form.get('password')
-        console.log(name, photo, email, password);
+        console.log(name, email, password,photo);
 
         if (password.length < 6) {
             setDisplayError('Password should be at least 6 characters');
@@ -31,10 +34,12 @@ const Register = (props) => {
             setDisplayError('Password must contain a Special Character');
             return;
         }
+
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
-                updateProfile(result.user,{
+                updateProfile(result.user, {
                     displayName : name,
                     photoURL : photo,
                 })
@@ -42,66 +47,57 @@ const Register = (props) => {
                     toast("Registration successfully!");
                     window.location.reload()
                 })
+                .catch(error =>{
+                    console.log(error.message);
+                })
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
             })
     }
+
 
     return (
 
         <div>
-            <div className="hero min-h-screen w-full bg-base-200">
-                <div className="hero-content flex-col lg:flex-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Register Now!</h1>
-
+            <div>
+                <h2 className="text-3xl my-10 text-center">
+                    Please Register
+                </h2>
+                <form onSubmit={handleRegister} className="md:w-3/4 lg:w-1/2 mx-auto">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" placeholder="Your Name" name="name" className="input input-bordered" required />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        < form onSubmit={handleRegister} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo URL</span>
-                                </label>
-                                <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                                <div>
-                                    {displayError && <p className="text-red-500 my-4">{displayError}</p>}
-                                </div>
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
-                            </div>
-
-                        </form>
-                        <p className='text-center pb-3'>
-                            Already have an account? <Link className='text-blue-600' to="/login">Login</Link>
-                        </p>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">PhotoURL</span>
+                        </label>
+                        <input type="text" placeholder="PhotoURl" name="photo" className="input input-bordered" required />
                     </div>
-                </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
+                        <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                        <div>
+                            {displayError && <p className="text-red-500 my-4">{displayError}</p>}
+                        </div>
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary">Register</button>
+                    </div>
+                </form>
+                <p className="text-center mt-4">Already have an account? <Link className="text-blue-600" to="/login">please login</Link></p>
             </div>
-
-
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Footer from '../Pages/Footer/Footer';
 
 
-const Main = (props) => {
+const Main = () => {
     return (
 
         <div>
