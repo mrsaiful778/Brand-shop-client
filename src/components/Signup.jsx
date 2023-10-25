@@ -15,7 +15,7 @@ const SignUp = ({user}) => {
         createUser(email, password)
         .then(result =>{
             console.log(result.user);
-            fetch('https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/user', {
+            fetch('https://e-commerce-based.vercel.app/user', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

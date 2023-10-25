@@ -1,11 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
+
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { FaGoogle } from 'react-icons/fa';
 
 
-const Login = (props) => {
+const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation()
     const nevigate = useNavigate()
@@ -17,6 +17,7 @@ const Login = (props) => {
         const email = form.get('email');
         const password = form.get('password')
         console.log(email, password);
+        setLoginError('')
         signIn(email, password)
             .then(result => {
                 console.log(result.user);

@@ -1,10 +1,6 @@
-import bannerimg1 from '../../assets/image/parfum1.jpg'
-import banner1 from '../../assets/image/banner1.webp'
-import banner2 from '../../assets/image/banner2.webp'
-import banner3 from '../../assets/image/banner3.webp'
-import banner4 from '../../assets/image/banner4.webp'
 
-const Banner = (props) => {
+
+const Banner = () => {
     return (
         <div className=''>
         <div className="carousel w-full">

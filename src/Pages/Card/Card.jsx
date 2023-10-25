@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const Card = ({mycart, myCartData, setMyCartData}) => {
 
@@ -6,11 +7,21 @@ const Card = ({mycart, myCartData, setMyCartData}) => {
     console.log(mycart);
     
     const handleDeleteCart= (id ) => {
-        fetch(`https://e-commerce-based.vercel.app/carts/${id}`)
+        fetch(`https://e-commerce-based.vercel.app/carts/${id}`,{
+            method: 'DELETE',
+            
+        })
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            if(data.deletedCount > 0  ){
+                toast("Product deleted successfully!");
+                const remaining = myCartData.filter(mycart => mycart._id  !== _id)
+                setMyCartData(remaining)
+            }
+            
         })
+
     }
 
     return (

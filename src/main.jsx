@@ -25,12 +25,14 @@ import PrivateRoute from './components/privateRoute/PrivateRoute';
 import Details from './Pages/Details/Details';
 import Update from './Pages/Update/Update';
 import Contact from './Pages/contact/contact';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -87,18 +89,18 @@ const router = createBrowserRouter([
       {
         path: '/mycart',
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-        loader: () => fetch(`https://e-commerce-based-gmpm8plzf-mrsaifulislam778.vercel.app/carts`)
+        loader: () => fetch(`https://e-commerce-based.vercel.app/carts`)
       },
       {
         path: '/details/:id',
-        element: <Details></Details>,
+        element: <PrivateRoute> <Details></Details></PrivateRoute>,
         loader: () => fetch(`https://e-commerce-based.vercel.app/products`)
 
 
       },
       {
           path: '/update/:id',
-          element: <Update></Update>,
+          element: <PrivateRoute><Update></Update></PrivateRoute>,
           loader: ({params}) => fetch(`https://e-commerce-based.vercel.app/products/${params.id}`)
           
       },

@@ -1,10 +1,9 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { useLoaderData } from 'react-router-dom';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Update = (props) => {
+const Update = () => {
     const productData = useLoaderData()
     const {_id, name, brand, category, price, photo, rating } = productData
     console.log(productData);
